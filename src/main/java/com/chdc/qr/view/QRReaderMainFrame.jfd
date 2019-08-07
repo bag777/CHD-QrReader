@@ -1,0 +1,323 @@
+JFDML JFormDesigner: "5.2.5.0.333" Java: "1.8.0_112" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"$sizePolicy": 1
+			"title": "창훈대교회 QR코드 입력"
+			addEvent( new FormEvent( "java.awt.event.ComponentListener", "componentResized", "thisComponentResized", true ) )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "camPane"
+				"preferredSize": new java.awt.Dimension( 350, 700 )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Before"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "ctxPane"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel2"
+					"preferredSize": new java.awt.Dimension( 400, 330 )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+						name: "datePane"
+						"border": new javax.swing.border.TitledBorder( null, "날짜", 4, 0, new java.awt.Font( "맑은 고딕", 1, 12 ), null )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "lbDate"
+							"text": "2018년 8월 12일"
+							"font": new java.awt.Font( "맑은 고딕", 1, 20 )
+							"horizontalAlignment": 2
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "West"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+						name: "panel4"
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
+							"$columnSpecs": "10dlu, labelcompgap, default, unrelgap, default:grow, labelcompgap, 0dlu, default, labelcompgap, default"
+							"$rowSpecs": "default, linegap, default, linegap, default, default, linegap, default, linegap, default, linegap, default"
+						} ) {
+							name: "panel5"
+							"border": new javax.swing.border.TitledBorder( null, "내역", 4, 0, new java.awt.Font( "맑은 고딕", 1, 12 ), null )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "lbItem12"
+								"text": " ▣ 일반계정 특별헌금"
+								"font": new java.awt.Font( "맑은 고딕", 1, 20 )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridWidth": 10
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "lbItem3"
+								"text": "▷ 선교헌금"
+								"font": new java.awt.Font( "맑은 고딕", 1, 22 )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 3
+								"gridY": 3
+								"gridWidth": 8
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "lbPeopleInfo1"
+								"text": "2889 남(43) 서리집사"
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 5
+								"gridY": 5
+								"gridWidth": 6
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "lbPeopleInfo2"
+								"text": "3지구 326구역 010-4554-3854"
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 5
+								"gridY": 6
+								"gridWidth": 6
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "label7"
+								"text": "이름"
+								"font": new java.awt.Font( "맑은 고딕", 0, 14 )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 3
+								"gridY": 8
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "lbName"
+								"text": "원준희"
+								"font": new java.awt.Font( "맑은 고딕", 1, 20 )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 5
+								"gridY": 8
+								"gridWidth": 6
+							} )
+							add( new FormComponent( "javax.swing.JLabel" ) {
+								name: "label8"
+								"text": "금액"
+								"font": new java.awt.Font( "맑은 고딕", 0, 14 )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 3
+								"gridY": 10
+							} )
+							add( new FormComponent( "javax.swing.JFormattedTextField" ) {
+								name: "ftfPrice"
+								"font": new java.awt.Font( "맑은 고딕", 0, 20 )
+								"horizontalAlignment": 4
+								"text": "123456"
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 5
+								"gridY": 10
+							} )
+							add( new FormComponent( "javax.swing.JTextField" ) {
+								name: "tfThousand"
+								"minimumSize": new java.awt.Dimension( 53, 37 )
+								"preferredSize": new java.awt.Dimension( 53, 37 )
+								"font": new java.awt.Font( "맑은 고딕", 0, 20 )
+								"editable": false
+								"text": ",000"
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 8
+								"gridY": 10
+								"vAlign": sfield com.jgoodies.forms.layout.CellConstraints FILL
+								"hAlign": sfield com.jgoodies.forms.layout.CellConstraints FILL
+							} )
+							add( new FormComponent( "javax.swing.JCheckBox" ) {
+								name: "ckbThousand"
+								"text": "천단위"
+								"horizontalAlignment": 11
+								"selected": true
+								addEvent( new FormEvent( "java.awt.event.ItemListener", "itemStateChanged", "ckbThousandItemStateChanged", true ) )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridX": 10
+								"gridY": 10
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+								"alignment": 4
+							} ) {
+								name: "panel3"
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "btEdit"
+									"text": "수정"
+									"enabled": false
+									addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btEditActionPerformed", true ) )
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "btDelete"
+									"text": "삭제"
+									"enabled": false
+									addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btDeleteActionPerformed", true ) )
+								} )
+								add( new FormComponent( "javax.swing.JButton" ) {
+									name: "btCancel"
+									"text": "취소"
+									"enabled": false
+									addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btCancelActionPerformed", true ) )
+								} )
+							}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+								"gridY": 12
+								"gridWidth": 10
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "North"
+						} )
+						add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+							name: "panel10"
+							"border": new javax.swing.border.TitledBorder( null, "요약", 4, 0, new java.awt.Font( "맑은 고딕", 1, 12 ), null )
+							add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+								name: "scrollPane2"
+								"preferredSize": new java.awt.Dimension( 300, 50 )
+								"minimumSize": new java.awt.Dimension( 300, 50 )
+								"maximumSize": new java.awt.Dimension( 300, 50 )
+								add( new FormComponent( "javax.swing.JTable" ) {
+									name: "tbSummary"
+									"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+										add( new java.util.Vector {
+											add( "" )
+											add( null )
+											add( null )
+										} )
+									}, new java.util.Vector {
+										add( "항목" )
+										add( "건수" )
+										add( "금액" )
+									}, new java.util.Vector {
+										add( class java.lang.String )
+										add( class java.lang.Integer )
+										add( class java.lang.Integer )
+									}, new java.util.Vector {
+										add( null )
+										add( null )
+										add( null )
+									}, new java.util.Vector {
+										add( null )
+										add( null )
+										add( null )
+									} )
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "Center"
+							} )
+							add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jgoodies.forms.layout.FormLayout ) {
+								"$columnSpecs": "default, labelcompgap, default, labelcompgap, 40dlu, unrelgap, default, labelcompgap, default:grow"
+								"$rowSpecs": "default"
+							} ) {
+								name: "panel9"
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "label13"
+									"text": "총 건수"
+									"font": &Font0 new java.awt.Font( "맑은 고딕", 0, 14 )
+								}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+									"gridX": 3
+								} )
+								add( new FormComponent( "javax.swing.JTextField" ) {
+									name: "tfTotalCount"
+									"font": &Font1 new java.awt.Font( "맑은 고딕", 0, 20 )
+									"horizontalAlignment": 11
+									"text": "0"
+									"editable": false
+								}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+									"gridX": 5
+								} )
+								add( new FormComponent( "javax.swing.JLabel" ) {
+									name: "label14"
+									"text": "총 금액"
+									"font": #Font0
+								}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+									"gridX": 7
+								} )
+								add( new FormComponent( "javax.swing.JTextField" ) {
+									name: "tfTotalPrice"
+									"font": #Font1
+									"horizontalAlignment": 11
+									"text": "0"
+									"editable": false
+								}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+									"gridX": 9
+								} )
+							}, new FormLayoutConstraints( class java.lang.String ) {
+								"value": "South"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "Center"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridLayout ) {
+						"columns": 2
+						"rows": 0
+						"hgap": 10
+						"vgap": 5
+					} ) {
+						name: "panel11"
+						"border": new javax.swing.border.TitledBorder( null, "지원", 4, 0, new java.awt.Font( "맑은 고딕", 1, 12 ), null )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "btReloadPeoples"
+							"text": "성도 인명 갱신"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btReloadPeoplesActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "btCustom"
+							"text": "인명 정보 가공"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btCustomActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "btExportXlsx"
+							"text": "Excel 저장"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btExportXlsxActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "btLabelInfo"
+							"text": "라벨출력정보"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btLabelInfoActionPerformed", true ) )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "South"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "West"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "summaryPane"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						"border": new javax.swing.border.TitledBorder( null, "기록", 4, 0, new java.awt.Font( "맑은 고딕", 1, 12 ), null )
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "tbIncome"
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector, new java.util.Vector {
+								add( "No." )
+								add( "내역" )
+								add( "성명" )
+								add( "금액" )
+							}, new java.util.Vector {
+								add( class java.lang.Integer )
+								add( class java.lang.String )
+								add( class java.lang.String )
+								add( class java.lang.Integer )
+							}, new java.util.Vector {
+								add( false )
+								add( false )
+								add( false )
+								add( false )
+							}, new java.util.Vector {
+								add( new com.jformdesigner.model.SwingTableColumn( null, 30, 0, 0, true ) )
+								add( null )
+								add( null )
+								add( null )
+							} )
+							"selectionMode": 0
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 1190, 780 )
+		} )
+	}
+}

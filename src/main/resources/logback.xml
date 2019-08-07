@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern> %d{MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%thread{10}] %cyan(%logger{20}):%magenta(%line) %msg%n </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 변수 지정 -->
+    <property name="APP_NAME" value="QrReader" />
+    <property name="LOG_DIR" value="/tmp/log/${APP_NAME}" />
+    <property name="LOG_PATH_NAME" value="${LOG_DIR}/${APP_NAME}.log" />
+    <property name="LOG_MAX_FILESIZE" value="10MB" />
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH_NAME}</file>
+        <!--<append>true</append>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/${APP_NAME}.log.%i</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>${LOG_MAX_FILESIZE}</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%F]%M\(%L\) : %m%n</pattern>
+        </encoder>
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+        <!--<fileNamePattern>labatory.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+        <!--<maxHistory>30</maxHistory>-->
+        <!--</rollingPolicy>-->
+
+        <!--<encoder>-->
+        <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-4relative -&#45;&#45; [ %thread{10} ] %logger{35} - %msg%n</pattern>-->
+        <!--</encoder>-->
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/> <!-- Console에 로그를 출력하고자 할 때 사용 -->
+        <appender-ref ref="FILE"/> <!-- File로 로그를 남기고자 할 때 사용 -->
+    </root>
+
+</configuration>
