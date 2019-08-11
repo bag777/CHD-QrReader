@@ -3,6 +3,7 @@ package com.chdc.qr.ctrl;
 import com.chdc.qr.QRResources;
 import com.chdc.qr.lib.PrefUtils;
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import com.chdc.qr.mdl.ItemInfo;
 import com.chdc.qr.mdl.ItemInfoPool;
 import com.chdc.qr.mdl.StaticProperties;
@@ -45,7 +46,7 @@ public class XlsxExporter implements QRResources {
         JOptionPane.showMessageDialog(owner, "저장 완료했습니다.");
     }
 
-    private List<List> lists = null;
+    private QueryResult lists = null;
     private void query() {
         QueryManager queryManager = new QueryManager();
 
@@ -55,7 +56,6 @@ public class XlsxExporter implements QRResources {
             e.printStackTrace();
             // Show Dialog
         }
-        lists.remove(0);
         log.info("[Total] " + lists.size());
     }
 

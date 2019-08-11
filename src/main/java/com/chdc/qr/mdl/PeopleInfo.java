@@ -1,6 +1,7 @@
 package com.chdc.qr.mdl;
 
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -63,10 +64,9 @@ public class PeopleInfo {
     private static final String SelectQuery = "" +
             "SELECT CODE, NAME, GENDER, AREA, SECTION, DUTY, CONTACT, AGE FROM PEOPLE_INFO WHERE CODE=%d";
     public static PeopleInfo getPeopleInfo(int code) {
-        List<List> lists;
+        QueryResult lists;
         try {
             lists = queryManager.executeQuery(String.format(SelectQuery, code));
-            lists.remove(0);
         } catch (SQLException e) {
             return null;
         }

@@ -1,6 +1,7 @@
 package com.chdc.qr.ctrl;
 
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import com.chdc.qr.mdl.StaticProperties;
 
 import javax.swing.*;
@@ -68,7 +69,7 @@ public class SummaryListHandler {
         if (tfTotalPrice == null) return;
 
         // load from DB
-        List<List> lists;
+        QueryResult lists;
         try {
             lists = queryManager.executeQuery(String.format(QuerySummary,
                     StaticProperties.getDate()));
@@ -76,8 +77,6 @@ public class SummaryListHandler {
             new Exception("요약 정보를 조회할 수 없습니다.", e).printStackTrace();
             return;
         }
-
-        lists.remove(0);
 
         // clear incomeListTable
         DefaultTableModel model = (DefaultTableModel) summaryTable.getModel();
@@ -104,8 +103,6 @@ public class SummaryListHandler {
             new Exception("전체 요약 정보를 조회할 수 없습니다.", e).printStackTrace();
             return;
         }
-
-        lists.remove(0);
 
         List record = lists.get(0);
         int count = queryManager.getInt(record.get(0));

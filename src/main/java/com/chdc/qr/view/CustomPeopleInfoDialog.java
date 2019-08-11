@@ -1,6 +1,7 @@
 package com.chdc.qr.view;
 
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -157,10 +158,9 @@ public class CustomPeopleInfoDialog extends JDialog {
 
         String query = String.format(QuerySelectPeople, name);
 
-        List<List> results = null;
+        QueryResult results = null;
         try {
             results = qm.executeQuery(query);
-            results.remove(0);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this,
                     "정보를 조회 할 수 없습니다.\n" + e.getMessage(),
@@ -222,10 +222,9 @@ public class CustomPeopleInfoDialog extends JDialog {
     private List getCustomPeopleInfo(int code) {
         String query = String.format(QuerySelectCustomPeople, code);
 
-        List<List> results = null;
+        QueryResult results = null;
         try {
             results = qm.executeQuery(query);
-            results.remove(0);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this,
                     "변경 정보를 조회 할 수 없습니다.\n" + e.getMessage(),

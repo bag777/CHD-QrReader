@@ -16,7 +16,7 @@ public class QueryManager {
         }
     }
 
-    public List<List> executeQuery(String query) throws SQLException {
+    public QueryResult executeQuery(String query) throws SQLException {
         BasicDataSource bds = DataSource.getInstance().getBds();
 
         try (Connection connection = bds.getConnection();
@@ -26,7 +26,7 @@ public class QueryManager {
         }
     }
 
-    private static List<List> getResults(ResultSet resultSet) throws SQLException {
+    private static QueryResult getResults(ResultSet resultSet) throws SQLException {
         ResultSetMetaData metaData = resultSet.getMetaData();
         int colCount = metaData.getColumnCount();
 
@@ -36,11 +36,11 @@ public class QueryManager {
             headerList.add(metaData.getColumnName(i));
         }
 
-        List<List> result = new ArrayList<>();
+        QueryResult result = new QueryResult();
 
-        result.add(headerList);
+        result.setHeader(headerList);
 
-        List record;
+        ArrayList record;
         while (resultSet.next()) {
             record = new ArrayList();
 

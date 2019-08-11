@@ -1,6 +1,7 @@
 package com.chdc.qr.ctrl;
 
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import com.chdc.qr.mdl.PeopleInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.h2.command.dml.Update;
@@ -177,8 +178,7 @@ public class PeopleInfoLoader {
 
     public PeopleInfo selectPeopleInfo(int code) throws SQLException {
         // CODE, NAME, GENDER, AREA, SECTION, DUTY, CONTACT, AGE
-        List<List> result = queryManager.executeQuery(String.format(SelectQuery, code));
-        result.remove(0);
+        QueryResult result = queryManager.executeQuery(String.format(SelectQuery, code));
 
         if (result.isEmpty()) throw new SQLException("None");
 

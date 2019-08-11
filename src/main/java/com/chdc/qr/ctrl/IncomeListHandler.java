@@ -2,6 +2,7 @@ package com.chdc.qr.ctrl;
 
 import com.chdc.qr.QRResources;
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import com.chdc.qr.mdl.IncomeRecord;
 import com.chdc.qr.mdl.ItemInfoPool;
 import com.chdc.qr.mdl.PeopleInfo;
@@ -136,7 +137,7 @@ public class IncomeListHandler implements QRResources {
         model.setRowCount(0);
 
         // load from DB
-        List<List> lists;
+        QueryResult lists;
         try {
             lists = queryManager.executeQuery(String.format(QuerySelectAll,
                     StaticProperties.getDate()));
@@ -144,8 +145,6 @@ public class IncomeListHandler implements QRResources {
             e.printStackTrace();
             throw new Exception("정보를 조회할 수 없습니다. - " + e.getMessage());
         }
-
-        lists.remove(0);
 
         // add to incomeListTable
         int odr = 0;
@@ -171,7 +170,7 @@ public class IncomeListHandler implements QRResources {
     }
 
     public boolean checkExist(int type, int itemCode, int peopleCode) throws Exception {
-        List<List> lists = null;
+        QueryResult lists = null;
         try {
             lists = queryManager.executeQuery(String.format(QuerySelect4CheckExist,
                     StaticProperties.getDate(), type, itemCode, peopleCode));
@@ -179,16 +178,13 @@ public class IncomeListHandler implements QRResources {
             throw new Exception("수입 내역 조회 실패 - " + e.getMessage());
         }
 
-        lists.remove(0);
-
         return lists.isEmpty();
     }
 
     public IncomeRecord getIncomeRecord(int ord) throws Exception {
-        List<List> lists = null;
+        QueryResult lists = null;
         try {
             lists = queryManager.executeQuery(String.format(QuerySelectEach, StaticProperties.getDate(), ord)) ;
-            lists.remove(0);
         } catch (SQLException e) {
             throw new Exception("수입 내역 조회 실패 - " + e.getMessage());
         }

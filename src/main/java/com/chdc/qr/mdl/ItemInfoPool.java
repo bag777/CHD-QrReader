@@ -3,6 +3,7 @@ package com.chdc.qr.mdl;
 import com.chdc.qr.QRResources;
 import com.chdc.qr.lib.CustomDispatcher;
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
@@ -29,8 +30,7 @@ public class ItemInfoPool implements QRResources {
     private void loadFromDb() {
         QueryManager qm = new QueryManager();
         try {
-            List<List> lists = qm.executeQuery("SELECT CODE, TYPE, CATEGORY, NAME FROM ITEM_INFO");
-            lists.remove(0);
+            QueryResult lists = qm.executeQuery("SELECT CODE, TYPE, CATEGORY, NAME FROM ITEM_INFO");
             int count = 0;
             for (List record : lists) {
                 put(new ItemInfo(

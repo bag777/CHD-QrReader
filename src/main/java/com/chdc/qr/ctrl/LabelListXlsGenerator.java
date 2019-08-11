@@ -2,6 +2,7 @@ package com.chdc.qr.ctrl;
 
 import com.chdc.qr.QRResources;
 import com.chdc.qr.lib.db.QueryManager;
+import com.chdc.qr.lib.db.QueryResult;
 import com.chdc.qr.mdl.LabelInfo;
 import com.chdc.qr.mdl.StaticProperties;
 import com.chdc.qr.lib.PrefUtils;
@@ -152,10 +153,9 @@ public class LabelListXlsGenerator implements QRResources {
     private List getCustomPeople(int code) {
         String query = String.format(QuerySelectCustomPeople, code);
 
-        List<List> results = null;
+        QueryResult results = null;
         try {
             results = qm.executeQuery(query);
-            results.remove(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
