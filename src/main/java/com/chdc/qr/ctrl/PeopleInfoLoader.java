@@ -215,14 +215,13 @@ public class PeopleInfoLoader {
     public void update(PeopleInfo peopleInfo) throws SQLException {
         queryManager.executeUpdate(String.format(UpdateQuery,
                 peopleInfo.getName(),
-                peopleInfo.getName(),
                 peopleInfo.getGender(),
                 peopleInfo.getArea(),
                 peopleInfo.getSection(),
                 peopleInfo.getDuty(),
                 peopleInfo.getContact(),
                 peopleInfo.getAge(),
-                peopleInfo.getContact()));
+                peopleInfo.getCode()));
     }
 
     private String removeSection(String section) {

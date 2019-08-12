@@ -44,6 +44,7 @@ public class CustomPeopleInfoDialog extends JDialog {
     private JLabel lbDuty;
     private JLabel lbContact;
     private JLabel lbAge;
+    private JButton btClear;
 
     private QueryManager qm = new QueryManager();
 
@@ -56,11 +57,26 @@ public class CustomPeopleInfoDialog extends JDialog {
 //        getRootPane().setDefaultButton(btSave);
 
         btSave.addActionListener(e -> {
-//                onOK();
             saveAndClear();
         });
 
+        btSave.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    saveAndClear();
+                }
+            }
+        });
         btClose.addActionListener(e -> onCancel());
+        btClose.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode()==KeyEvent.VK_ENTER){
+                    onCancel();
+                }
+            }
+        });
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -88,19 +104,11 @@ public class CustomPeopleInfoDialog extends JDialog {
             searchPeople();
         });
         tbList.getSelectionModel().addListSelectionListener(e -> {
-            if (tbList.getRowCount() == 0) return;
-
-            int selRow = e.getLastIndex();
-
-            List row = new ArrayList();
-
-            for (int c = 0; c < tbList.getColumnCount(); c++) {
-                row.add(tbList.getValueAt(selRow, c));
+            if (e.getValueIsAdjusting()) {
+                setCustomInfo(tbList.getSelectedRow());
             }
-
-            setSelectedPeopleInfo(row);
-            tfCustName.requestFocus();
         });
+        tbList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tfCustName.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -124,6 +132,11 @@ public class CustomPeopleInfoDialog extends JDialog {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                     tfCustName.setText(lbName.getText());
+                    tfCustSection.setText(lbSection.getText());
+                    tfCustDuty.setText(lbDuty.getText());
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    tfCustSection.requestFocus();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     clear();
@@ -133,16 +146,25 @@ public class CustomPeopleInfoDialog extends JDialog {
         tfCustSection.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    tfCustSection.setText(lbSection.getText());
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    tfCustDuty.requestFocus();
                 }
             }
         });
         tfCustDuty.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    tfCustDuty.setText(lbDuty.getText());
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    btSave.requestFocus();
+                }
+            }
+        });
+        btClear.addActionListener(e -> clearCustInfo());
+        btClear.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    clearCustInfo();
                 }
             }
         });
@@ -169,6 +191,7 @@ public class CustomPeopleInfoDialog extends JDialog {
         }
 
         setResultOnTable(results);
+        setCustomInfo(0);
     }
 
     private final String[] Headers = { "번호", "이름", "성별", "교구", "목장", "직책", "연락처", "나이" };
@@ -189,7 +212,6 @@ public class CustomPeopleInfoDialog extends JDialog {
         }
         DefaultTableModel tableModel = new DefaultTableModel(data, Headers);
         tbList.setModel(tableModel);
-        tbList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tbList.setRowSelectionInterval(0, 0);
     }
 
@@ -244,6 +266,20 @@ public class CustomPeopleInfoDialog extends JDialog {
         dispose();
     }
 
+    private void setCustomInfo(int selRow) {
+        if (selRow < 0) return;
+        if (tbList.getRowCount() == 0) return;
+
+        List row = new ArrayList();
+
+        for (int c = 0; c < tbList.getColumnCount(); c++) {
+            row.add(tbList.getValueAt(selRow, c));
+        }
+
+        setSelectedPeopleInfo(row);
+        tfCustName.requestFocus();
+    }
+
     private void saveAndClear() {
         if (this.selectedCode == 0) return;
 
@@ -293,13 +329,18 @@ public class CustomPeopleInfoDialog extends JDialog {
         lbContact.setText("-");
         lbAge.setText("-");
 
-        tfCustName.setText("");
-        tfCustSection.setText("");
-        tfCustDuty.setText("");
+        clearCustInfo();
 
         selectedCode = 0;
 
         tfName.requestFocus();
+    }
+
+    private void clearCustInfo() {
+
+        tfCustName.setText("");
+        tfCustSection.setText("");
+        tfCustDuty.setText("");
     }
 
     private void onCancel() {
