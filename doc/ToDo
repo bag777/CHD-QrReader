@@ -12,3 +12,22 @@ Label 생성 규칙
 
 Excel저장시
 분류항목(비전헌금)-목장-Label-QR(CODE,ID,이름)
+
+
+
+
+############################################
+개편
+
+[전제]
+1. 디모데재정프로그램 우선 실행 및 로그인
+2. 이후 QrCode Reader 실행시 화면 재배치 처리
+
+[Seq]
+1. PID를 리스트업하고 재정프로그램PID를 추출
+2. 해당 PID를 Activate시키고
+  > nircmd win activate process /17256
+3. 화변 해상도를 Detection해서 적절한 크기로 설정한다.
+  > nircmd win setsize process /17256 500 20 500 200
+4. QRCodeReader가 Detection되면 재정프로그램에 해당 코드를 입력하고 Enter 처리
+5. QRCodeReader를 클릭하면 재 인식 시도

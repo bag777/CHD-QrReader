@@ -114,7 +114,7 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
 
                     int price = getPrice();
                     if (price > 0) {
-                        switch(mode) {
+                        switch (mode) {
                             case Insert:
                                 try {
                                     IncomeListHandler.getInstance().addIncome(type, itemCode, peopleCode, lbName.getText(), price);
@@ -261,6 +261,7 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
     }
 
     private JXDatePicker picker = new JXDatePicker(Locale.KOREA);
+
     private void init() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -379,7 +380,7 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
             Dimension size = Resolution.getSize();
 
             webcam = Webcam.getDefault();
-            webcam.setCustomViewSizes(new Dimension[] { size });
+            webcam.setCustomViewSizes(new Dimension[]{size});
             webcam.setViewSize(size);
             webcam.open();
 
@@ -578,371 +579,374 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
         }
     }
 
-	private void btCustomActionPerformed(ActionEvent e) {
+    private void btCustomActionPerformed(ActionEvent e) {
         CustomPeopleInfoDialog dialog = new CustomPeopleInfoDialog(this);
         dialog.pack();
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
-	}
+    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		camPane = new JPanel();
-		ctxPane = new JPanel();
-		panel2 = new JPanel();
-		datePane = new JPanel();
-		lbDate = new JLabel();
-		panel4 = new JPanel();
-		panel5 = new JPanel();
-		lbItem12 = new JLabel();
-		lbItem3 = new JLabel();
-		lbPeopleInfo1 = new JLabel();
-		lbPeopleInfo2 = new JLabel();
-		label7 = new JLabel();
-		lbName = new JLabel();
-		label8 = new JLabel();
-		ftfPrice = new JFormattedTextField();
-		tfThousand = new JTextField();
-		ckbThousand = new JCheckBox();
-		panel3 = new JPanel();
-		btEdit = new JButton();
-		btDelete = new JButton();
-		btCancel = new JButton();
-		panel10 = new JPanel();
-		scrollPane2 = new JScrollPane();
-		tbSummary = new JTable();
-		panel9 = new JPanel();
-		label13 = new JLabel();
-		tfTotalCount = new JTextField();
-		label14 = new JLabel();
-		tfTotalPrice = new JTextField();
-		panel11 = new JPanel();
-		btReloadPeoples = new JButton();
-		btCustom = new JButton();
-		btExportXlsx = new JButton();
-		btLabelInfo = new JButton();
-		summaryPane = new JPanel();
-		scrollPane1 = new JScrollPane();
-		tbIncome = new JTable();
+        camPane = new JPanel();
+        ctxPane = new JPanel();
+        panel2 = new JPanel();
+        datePane = new JPanel();
+        lbDate = new JLabel();
+        panel4 = new JPanel();
+        panel5 = new JPanel();
+        lbItem12 = new JLabel();
+        lbItem3 = new JLabel();
+        lbPeopleInfo1 = new JLabel();
+        lbPeopleInfo2 = new JLabel();
+        label7 = new JLabel();
+        lbName = new JLabel();
+        label8 = new JLabel();
+        ftfPrice = new JFormattedTextField();
+        tfThousand = new JTextField();
+        ckbThousand = new JCheckBox();
+        panel3 = new JPanel();
+        btEdit = new JButton();
+        btDelete = new JButton();
+        btCancel = new JButton();
+        panel10 = new JPanel();
+        scrollPane2 = new JScrollPane();
+        tbSummary = new JTable();
+        panel9 = new JPanel();
+        label13 = new JLabel();
+        tfTotalCount = new JTextField();
+        label14 = new JLabel();
+        tfTotalPrice = new JTextField();
+        panel11 = new JPanel();
+        btReloadPeoples = new JButton();
+        btCustom = new JButton();
+        btExportXlsx = new JButton();
+        btLabelInfo = new JButton();
+        summaryPane = new JPanel();
+        scrollPane1 = new JScrollPane();
+        tbIncome = new JTable();
 
-		//======== this ========
-		setTitle("\ucc3d\ud6c8\ub300\uad50\ud68c QR\ucf54\ub4dc \uc785\ub825");
-		addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentResized(ComponentEvent e) {
-				thisComponentResized(e);
-			}
-		});
-		Container contentPane = getContentPane();
-		contentPane.setLayout(new BorderLayout());
+        //======== this ========
+        setTitle("\ucc3d\ud6c8\ub300\uad50\ud68c QR\ucf54\ub4dc \uc785\ub825");
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                thisComponentResized(e);
+            }
+        });
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
 
-		//======== camPane ========
-		{
-			camPane.setPreferredSize(new Dimension(350, 700));
-			camPane.setLayout(new BorderLayout());
-		}
-		contentPane.add(camPane, BorderLayout.LINE_START);
+        //======== camPane ========
+        {
+            camPane.setPreferredSize(new Dimension(350, 700));
+            camPane.setLayout(new BorderLayout());
+        }
+        contentPane.add(camPane, BorderLayout.LINE_START);
 
-		//======== ctxPane ========
-		{
-			ctxPane.setLayout(new BorderLayout());
+        //======== ctxPane ========
+        {
+            ctxPane.setLayout(new BorderLayout());
 
-			//======== panel2 ========
-			{
-				panel2.setPreferredSize(new Dimension(400, 330));
-				panel2.setLayout(new BorderLayout());
+            //======== panel2 ========
+            {
+                panel2.setPreferredSize(new Dimension(400, 330));
+                panel2.setLayout(new BorderLayout());
 
-				//======== datePane ========
-				{
-					datePane.setBorder(new TitledBorder(null, "\ub0a0\uc9dc", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-						new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
-					datePane.setLayout(new BorderLayout());
+                //======== datePane ========
+                {
+                    datePane.setBorder(new TitledBorder(null, "\ub0a0\uc9dc", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                            new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+                    datePane.setLayout(new BorderLayout());
 
-					//---- lbDate ----
-					lbDate.setText("2018\ub144 8\uc6d4 12\uc77c");
-					lbDate.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
-					lbDate.setHorizontalAlignment(SwingConstants.LEFT);
-					datePane.add(lbDate, BorderLayout.WEST);
-				}
-				panel2.add(datePane, BorderLayout.NORTH);
+                    //---- lbDate ----
+                    lbDate.setText("2018\ub144 8\uc6d4 12\uc77c");
+                    lbDate.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
+                    lbDate.setHorizontalAlignment(SwingConstants.LEFT);
+                    datePane.add(lbDate, BorderLayout.WEST);
+                }
+                panel2.add(datePane, BorderLayout.NORTH);
 
-				//======== panel4 ========
-				{
-					panel4.setLayout(new BorderLayout());
+                //======== panel4 ========
+                {
+                    panel4.setLayout(new BorderLayout());
 
-					//======== panel5 ========
-					{
-						panel5.setBorder(new TitledBorder(null, "\ub0b4\uc5ed", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-							new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
-						panel5.setLayout(new FormLayout(
-							"10dlu, $lcgap, default, $ugap, default:grow, $lcgap, 0dlu, default, $lcgap, default",
-							"2*(default, $lgap), 2*(default), 3*($lgap, default)"));
+                    //======== panel5 ========
+                    {
+                        panel5.setBorder(new TitledBorder(null, "\ub0b4\uc5ed", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+                        panel5.setLayout(new FormLayout(
+                                "10dlu, $lcgap, default, $ugap, default:grow, $lcgap, 0dlu, default, $lcgap, default",
+                                "2*(default, $lgap), 2*(default), 3*($lgap, default)"));
 
-						//---- lbItem12 ----
-						lbItem12.setText(" \u25a3 \uc77c\ubc18\uacc4\uc815 \ud2b9\ubcc4\ud5cc\uae08");
-						lbItem12.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
-						panel5.add(lbItem12, CC.xywh(1, 1, 10, 1));
+                        //---- lbItem12 ----
+                        lbItem12.setText(" \u25a3 \uc77c\ubc18\uacc4\uc815 \ud2b9\ubcc4\ud5cc\uae08");
+                        lbItem12.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
+                        panel5.add(lbItem12, CC.xywh(1, 1, 10, 1));
 
-						//---- lbItem3 ----
-						lbItem3.setText("\u25b7 \uc120\uad50\ud5cc\uae08");
-						lbItem3.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 22));
-						panel5.add(lbItem3, CC.xywh(3, 3, 8, 1));
+                        //---- lbItem3 ----
+                        lbItem3.setText("\u25b7 \uc120\uad50\ud5cc\uae08");
+                        lbItem3.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 22));
+                        panel5.add(lbItem3, CC.xywh(3, 3, 8, 1));
 
-						//---- lbPeopleInfo1 ----
-						lbPeopleInfo1.setText("2889 \ub0a8(43) \uc11c\ub9ac\uc9d1\uc0ac");
-						panel5.add(lbPeopleInfo1, CC.xywh(5, 5, 6, 1));
+                        //---- lbPeopleInfo1 ----
+                        lbPeopleInfo1.setText("2889 \ub0a8(43) \uc11c\ub9ac\uc9d1\uc0ac");
+                        panel5.add(lbPeopleInfo1, CC.xywh(5, 5, 6, 1));
 
-						//---- lbPeopleInfo2 ----
-						lbPeopleInfo2.setText("3\uc9c0\uad6c 326\uad6c\uc5ed 010-4554-3854");
-						panel5.add(lbPeopleInfo2, CC.xywh(5, 6, 6, 1));
+                        //---- lbPeopleInfo2 ----
+                        lbPeopleInfo2.setText("3\uc9c0\uad6c 326\uad6c\uc5ed 010-4554-3854");
+                        panel5.add(lbPeopleInfo2, CC.xywh(5, 6, 6, 1));
 
-						//---- label7 ----
-						label7.setText("\uc774\ub984");
-						label7.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
-						panel5.add(label7, CC.xy(3, 8));
+                        //---- label7 ----
+                        label7.setText("\uc774\ub984");
+                        label7.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
+                        panel5.add(label7, CC.xy(3, 8));
 
-						//---- lbName ----
-						lbName.setText("\uc6d0\uc900\ud76c");
-						lbName.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
-						panel5.add(lbName, CC.xywh(5, 8, 6, 1));
+                        //---- lbName ----
+                        lbName.setText("\uc6d0\uc900\ud76c");
+                        lbName.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 20));
+                        panel5.add(lbName, CC.xywh(5, 8, 6, 1));
 
-						//---- label8 ----
-						label8.setText("\uae08\uc561");
-						label8.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
-						panel5.add(label8, CC.xy(3, 10));
+                        //---- label8 ----
+                        label8.setText("\uae08\uc561");
+                        label8.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
+                        panel5.add(label8, CC.xy(3, 10));
 
-						//---- ftfPrice ----
-						ftfPrice.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
-						ftfPrice.setHorizontalAlignment(SwingConstants.RIGHT);
-						ftfPrice.setText("123456");
-						panel5.add(ftfPrice, CC.xy(5, 10));
+                        //---- ftfPrice ----
+                        ftfPrice.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
+                        ftfPrice.setHorizontalAlignment(SwingConstants.RIGHT);
+                        ftfPrice.setText("123456");
+                        panel5.add(ftfPrice, CC.xy(5, 10));
 
-						//---- tfThousand ----
-						tfThousand.setMinimumSize(new Dimension(53, 37));
-						tfThousand.setPreferredSize(new Dimension(53, 37));
-						tfThousand.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
-						tfThousand.setEditable(false);
-						tfThousand.setText(",000");
-						panel5.add(tfThousand, CC.xy(8, 10, CC.FILL, CC.FILL));
+                        //---- tfThousand ----
+                        tfThousand.setMinimumSize(new Dimension(53, 37));
+                        tfThousand.setPreferredSize(new Dimension(53, 37));
+                        tfThousand.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
+                        tfThousand.setEditable(false);
+                        tfThousand.setText(",000");
+                        panel5.add(tfThousand, CC.xy(8, 10, CC.FILL, CC.FILL));
 
-						//---- ckbThousand ----
-						ckbThousand.setText("\ucc9c\ub2e8\uc704");
-						ckbThousand.setHorizontalAlignment(SwingConstants.TRAILING);
-						ckbThousand.setSelected(true);
-						ckbThousand.addItemListener(e -> ckbThousandItemStateChanged(e));
-						panel5.add(ckbThousand, CC.xy(10, 10));
+                        //---- ckbThousand ----
+                        ckbThousand.setText("\ucc9c\ub2e8\uc704");
+                        ckbThousand.setHorizontalAlignment(SwingConstants.TRAILING);
+                        ckbThousand.setSelected(true);
+                        ckbThousand.addItemListener(e -> ckbThousandItemStateChanged(e));
+                        panel5.add(ckbThousand, CC.xy(10, 10));
 
-						//======== panel3 ========
-						{
-							panel3.setLayout(new FlowLayout(FlowLayout.TRAILING));
+                        //======== panel3 ========
+                        {
+                            panel3.setLayout(new FlowLayout(FlowLayout.TRAILING));
 
-							//---- btEdit ----
-							btEdit.setText("\uc218\uc815");
-							btEdit.setEnabled(false);
-							btEdit.addActionListener(e -> btEditActionPerformed(e));
-							panel3.add(btEdit);
+                            //---- btEdit ----
+                            btEdit.setText("\uc218\uc815");
+                            btEdit.setEnabled(false);
+                            btEdit.addActionListener(e -> btEditActionPerformed(e));
+                            panel3.add(btEdit);
 
-							//---- btDelete ----
-							btDelete.setText("\uc0ad\uc81c");
-							btDelete.setEnabled(false);
-							btDelete.addActionListener(e -> btDeleteActionPerformed(e));
-							panel3.add(btDelete);
+                            //---- btDelete ----
+                            btDelete.setText("\uc0ad\uc81c");
+                            btDelete.setEnabled(false);
+                            btDelete.addActionListener(e -> btDeleteActionPerformed(e));
+                            panel3.add(btDelete);
 
-							//---- btCancel ----
-							btCancel.setText("\ucde8\uc18c");
-							btCancel.setEnabled(false);
-							btCancel.addActionListener(e -> btCancelActionPerformed(e));
-							panel3.add(btCancel);
-						}
-						panel5.add(panel3, CC.xywh(1, 12, 10, 1));
-					}
-					panel4.add(panel5, BorderLayout.NORTH);
+                            //---- btCancel ----
+                            btCancel.setText("\ucde8\uc18c");
+                            btCancel.setEnabled(false);
+                            btCancel.addActionListener(e -> btCancelActionPerformed(e));
+                            panel3.add(btCancel);
+                        }
+                        panel5.add(panel3, CC.xywh(1, 12, 10, 1));
+                    }
+                    panel4.add(panel5, BorderLayout.NORTH);
 
-					//======== panel10 ========
-					{
-						panel10.setBorder(new TitledBorder(null, "\uc694\uc57d", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-							new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
-						panel10.setLayout(new BorderLayout());
+                    //======== panel10 ========
+                    {
+                        panel10.setBorder(new TitledBorder(null, "\uc694\uc57d", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                                new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+                        panel10.setLayout(new BorderLayout());
 
-						//======== scrollPane2 ========
-						{
-							scrollPane2.setPreferredSize(new Dimension(300, 50));
-							scrollPane2.setMinimumSize(new Dimension(300, 50));
-							scrollPane2.setMaximumSize(new Dimension(300, 50));
+                        //======== scrollPane2 ========
+                        {
+                            scrollPane2.setPreferredSize(new Dimension(300, 50));
+                            scrollPane2.setMinimumSize(new Dimension(300, 50));
+                            scrollPane2.setMaximumSize(new Dimension(300, 50));
 
-							//---- tbSummary ----
-							tbSummary.setModel(new DefaultTableModel(
-								new Object[][] {
-									{"", null, null},
-								},
-								new String[] {
-									"\ud56d\ubaa9", "\uac74\uc218", "\uae08\uc561"
-								}
-							) {
-								Class<?>[] columnTypes = new Class<?>[] {
-									String.class, Integer.class, Integer.class
-								};
-								@Override
-								public Class<?> getColumnClass(int columnIndex) {
-									return columnTypes[columnIndex];
-								}
-							});
-							scrollPane2.setViewportView(tbSummary);
-						}
-						panel10.add(scrollPane2, BorderLayout.CENTER);
+                            //---- tbSummary ----
+                            tbSummary.setModel(new DefaultTableModel(
+                                    new Object[][]{
+                                            {"", null, null},
+                                    },
+                                    new String[]{
+                                            "\ud56d\ubaa9", "\uac74\uc218", "\uae08\uc561"
+                                    }
+                            ) {
+                                Class<?>[] columnTypes = new Class<?>[]{
+                                        String.class, Integer.class, Integer.class
+                                };
 
-						//======== panel9 ========
-						{
-							panel9.setLayout(new FormLayout(
-								"2*(default, $lcgap), 40dlu, $ugap, default, $lcgap, default:grow",
-								"default"));
+                                @Override
+                                public Class<?> getColumnClass(int columnIndex) {
+                                    return columnTypes[columnIndex];
+                                }
+                            });
+                            scrollPane2.setViewportView(tbSummary);
+                        }
+                        panel10.add(scrollPane2, BorderLayout.CENTER);
 
-							//---- label13 ----
-							label13.setText("\ucd1d \uac74\uc218");
-							label13.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
-							panel9.add(label13, CC.xy(3, 1));
+                        //======== panel9 ========
+                        {
+                            panel9.setLayout(new FormLayout(
+                                    "2*(default, $lcgap), 40dlu, $ugap, default, $lcgap, default:grow",
+                                    "default"));
 
-							//---- tfTotalCount ----
-							tfTotalCount.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
-							tfTotalCount.setHorizontalAlignment(SwingConstants.TRAILING);
-							tfTotalCount.setText("0");
-							tfTotalCount.setEditable(false);
-							panel9.add(tfTotalCount, CC.xy(5, 1));
+                            //---- label13 ----
+                            label13.setText("\ucd1d \uac74\uc218");
+                            label13.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
+                            panel9.add(label13, CC.xy(3, 1));
 
-							//---- label14 ----
-							label14.setText("\ucd1d \uae08\uc561");
-							label14.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
-							panel9.add(label14, CC.xy(7, 1));
+                            //---- tfTotalCount ----
+                            tfTotalCount.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
+                            tfTotalCount.setHorizontalAlignment(SwingConstants.TRAILING);
+                            tfTotalCount.setText("0");
+                            tfTotalCount.setEditable(false);
+                            panel9.add(tfTotalCount, CC.xy(5, 1));
 
-							//---- tfTotalPrice ----
-							tfTotalPrice.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
-							tfTotalPrice.setHorizontalAlignment(SwingConstants.TRAILING);
-							tfTotalPrice.setText("0");
-							tfTotalPrice.setEditable(false);
-							panel9.add(tfTotalPrice, CC.xy(9, 1));
-						}
-						panel10.add(panel9, BorderLayout.SOUTH);
-					}
-					panel4.add(panel10, BorderLayout.CENTER);
-				}
-				panel2.add(panel4, BorderLayout.CENTER);
+                            //---- label14 ----
+                            label14.setText("\ucd1d \uae08\uc561");
+                            label14.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 14));
+                            panel9.add(label14, CC.xy(7, 1));
 
-				//======== panel11 ========
-				{
-					panel11.setBorder(new TitledBorder(null, "\uc9c0\uc6d0", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-						new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
-					panel11.setLayout(new GridLayout(0, 2, 10, 5));
+                            //---- tfTotalPrice ----
+                            tfTotalPrice.setFont(new Font("\ub9d1\uc740 \uace0\ub515", Font.PLAIN, 20));
+                            tfTotalPrice.setHorizontalAlignment(SwingConstants.TRAILING);
+                            tfTotalPrice.setText("0");
+                            tfTotalPrice.setEditable(false);
+                            panel9.add(tfTotalPrice, CC.xy(9, 1));
+                        }
+                        panel10.add(panel9, BorderLayout.SOUTH);
+                    }
+                    panel4.add(panel10, BorderLayout.CENTER);
+                }
+                panel2.add(panel4, BorderLayout.CENTER);
 
-					//---- btReloadPeoples ----
-					btReloadPeoples.setText("\uc131\ub3c4 \uc778\uba85 \uac31\uc2e0");
-					btReloadPeoples.addActionListener(e -> btReloadPeoplesActionPerformed(e));
-					panel11.add(btReloadPeoples);
+                //======== panel11 ========
+                {
+                    panel11.setBorder(new TitledBorder(null, "\uc9c0\uc6d0", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                            new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+                    panel11.setLayout(new GridLayout(0, 2, 10, 5));
 
-					//---- btCustom ----
-					btCustom.setText("\uc778\uba85 \uc815\ubcf4 \uac00\uacf5");
-					btCustom.addActionListener(e -> btCustomActionPerformed(e));
-					panel11.add(btCustom);
+                    //---- btReloadPeoples ----
+                    btReloadPeoples.setText("\uc131\ub3c4 \uc778\uba85 \uac31\uc2e0");
+                    btReloadPeoples.addActionListener(e -> btReloadPeoplesActionPerformed(e));
+                    panel11.add(btReloadPeoples);
 
-					//---- btExportXlsx ----
-					btExportXlsx.setText("Excel \uc800\uc7a5");
-					btExportXlsx.addActionListener(e -> btExportXlsxActionPerformed(e));
-					panel11.add(btExportXlsx);
+                    //---- btCustom ----
+                    btCustom.setText("\uc778\uba85 \uc815\ubcf4 \uac00\uacf5");
+                    btCustom.addActionListener(e -> btCustomActionPerformed(e));
+                    panel11.add(btCustom);
 
-					//---- btLabelInfo ----
-					btLabelInfo.setText("\ub77c\ubca8\ucd9c\ub825\uc815\ubcf4");
-					btLabelInfo.addActionListener(e -> btLabelInfoActionPerformed(e));
-					panel11.add(btLabelInfo);
-				}
-				panel2.add(panel11, BorderLayout.SOUTH);
-			}
-			ctxPane.add(panel2, BorderLayout.WEST);
+                    //---- btExportXlsx ----
+                    btExportXlsx.setText("Excel \uc800\uc7a5");
+                    btExportXlsx.addActionListener(e -> btExportXlsxActionPerformed(e));
+                    panel11.add(btExportXlsx);
 
-			//======== summaryPane ========
-			{
-				summaryPane.setLayout(new BorderLayout());
+                    //---- btLabelInfo ----
+                    btLabelInfo.setText("\ub77c\ubca8\ucd9c\ub825\uc815\ubcf4");
+                    btLabelInfo.addActionListener(e -> btLabelInfoActionPerformed(e));
+                    panel11.add(btLabelInfo);
+                }
+                panel2.add(panel11, BorderLayout.SOUTH);
+            }
+            ctxPane.add(panel2, BorderLayout.WEST);
 
-				//======== scrollPane1 ========
-				{
-					scrollPane1.setBorder(new TitledBorder(null, "\uae30\ub85d", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
-						new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+            //======== summaryPane ========
+            {
+                summaryPane.setLayout(new BorderLayout());
 
-					//---- tbIncome ----
-					tbIncome.setModel(new DefaultTableModel(
-						new Object[][] {
-						},
-						new String[] {
-							"No.", "\ub0b4\uc5ed", "\uc131\uba85", "\uae08\uc561"
-						}
-					) {
-						Class<?>[] columnTypes = new Class<?>[] {
-							Integer.class, String.class, String.class, Integer.class
-						};
-						boolean[] columnEditable = new boolean[] {
-							false, false, false, false
-						};
-						@Override
-						public Class<?> getColumnClass(int columnIndex) {
-							return columnTypes[columnIndex];
-						}
-						@Override
-						public boolean isCellEditable(int rowIndex, int columnIndex) {
-							return columnEditable[columnIndex];
-						}
-					});
-					{
-						TableColumnModel cm = tbIncome.getColumnModel();
-						cm.getColumn(0).setPreferredWidth(30);
-					}
-					tbIncome.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-					scrollPane1.setViewportView(tbIncome);
-				}
-				summaryPane.add(scrollPane1, BorderLayout.CENTER);
-			}
-			ctxPane.add(summaryPane, BorderLayout.CENTER);
-		}
-		contentPane.add(ctxPane, BorderLayout.CENTER);
-		setSize(1190, 780);
-		setLocationRelativeTo(getOwner());
+                //======== scrollPane1 ========
+                {
+                    scrollPane1.setBorder(new TitledBorder(null, "\uae30\ub85d", TitledBorder.LEADING, TitledBorder.DEFAULT_POSITION,
+                            new Font("\ub9d1\uc740 \uace0\ub515", Font.BOLD, 12)));
+
+                    //---- tbIncome ----
+                    tbIncome.setModel(new DefaultTableModel(
+                            new Object[][]{
+                            },
+                            new String[]{
+                                    "No.", "\ub0b4\uc5ed", "\uc131\uba85", "\uae08\uc561"
+                            }
+                    ) {
+                        Class<?>[] columnTypes = new Class<?>[]{
+                                Integer.class, String.class, String.class, Integer.class
+                        };
+                        boolean[] columnEditable = new boolean[]{
+                                false, false, false, false
+                        };
+
+                        @Override
+                        public Class<?> getColumnClass(int columnIndex) {
+                            return columnTypes[columnIndex];
+                        }
+
+                        @Override
+                        public boolean isCellEditable(int rowIndex, int columnIndex) {
+                            return columnEditable[columnIndex];
+                        }
+                    });
+                    {
+                        TableColumnModel cm = tbIncome.getColumnModel();
+                        cm.getColumn(0).setPreferredWidth(30);
+                    }
+                    tbIncome.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                    scrollPane1.setViewportView(tbIncome);
+                }
+                summaryPane.add(scrollPane1, BorderLayout.CENTER);
+            }
+            ctxPane.add(summaryPane, BorderLayout.CENTER);
+        }
+        contentPane.add(ctxPane, BorderLayout.CENTER);
+        setSize(1190, 780);
+        setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	private JPanel camPane;
-	private JPanel ctxPane;
-	private JPanel panel2;
-	private JPanel datePane;
-	private JLabel lbDate;
-	private JPanel panel4;
-	private JPanel panel5;
-	private JLabel lbItem12;
-	private JLabel lbItem3;
-	private JLabel lbPeopleInfo1;
-	private JLabel lbPeopleInfo2;
-	private JLabel label7;
-	private JLabel lbName;
-	private JLabel label8;
-	private JFormattedTextField ftfPrice;
-	private JTextField tfThousand;
-	private JCheckBox ckbThousand;
-	private JPanel panel3;
-	private JButton btEdit;
-	private JButton btDelete;
-	private JButton btCancel;
-	private JPanel panel10;
-	private JScrollPane scrollPane2;
-	private JTable tbSummary;
-	private JPanel panel9;
-	private JLabel label13;
-	private JTextField tfTotalCount;
-	private JLabel label14;
-	private JTextField tfTotalPrice;
-	private JPanel panel11;
-	private JButton btReloadPeoples;
-	private JButton btCustom;
-	private JButton btExportXlsx;
-	private JButton btLabelInfo;
-	private JPanel summaryPane;
-	private JScrollPane scrollPane1;
-	private JTable tbIncome;
+    private JPanel camPane;
+    private JPanel ctxPane;
+    private JPanel panel2;
+    private JPanel datePane;
+    private JLabel lbDate;
+    private JPanel panel4;
+    private JPanel panel5;
+    private JLabel lbItem12;
+    private JLabel lbItem3;
+    private JLabel lbPeopleInfo1;
+    private JLabel lbPeopleInfo2;
+    private JLabel label7;
+    private JLabel lbName;
+    private JLabel label8;
+    private JFormattedTextField ftfPrice;
+    private JTextField tfThousand;
+    private JCheckBox ckbThousand;
+    private JPanel panel3;
+    private JButton btEdit;
+    private JButton btDelete;
+    private JButton btCancel;
+    private JPanel panel10;
+    private JScrollPane scrollPane2;
+    private JTable tbSummary;
+    private JPanel panel9;
+    private JLabel label13;
+    private JTextField tfTotalCount;
+    private JLabel label14;
+    private JTextField tfTotalPrice;
+    private JPanel panel11;
+    private JButton btReloadPeoples;
+    private JButton btCustom;
+    private JButton btExportXlsx;
+    private JButton btLabelInfo;
+    private JPanel summaryPane;
+    private JScrollPane scrollPane1;
+    private JTable tbIncome;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
