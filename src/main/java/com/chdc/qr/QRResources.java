@@ -9,9 +9,10 @@ import java.util.List;
 
 public interface QRResources {
     String DRIVER_CLASS_NAME = "org.h2.Driver";
-    String DB_URL = "jdbc:h2:~/QRCodeReader;AUTO_SERVER=TRUE";
+//    String DB_URL = "jdbc:h2:~/QRCodeReader;AUTO_SERVER=TRUE";
+    String DB_URL = "jdbc:h2:file:C:/h2/QrReader;AUTO_SERVER=true";
     String DB_USER = "chdc";
-    String DB_PASSWORD = "";
+    String DB_PASSWORD = "chdc";
 
     WebcamResolution Resolution = WebcamResolution.HD;
 
