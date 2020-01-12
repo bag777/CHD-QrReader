@@ -460,6 +460,17 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
                         item = 100101;
                     }
 
+                    // 2020년도 코드 수정됨.
+                    if (type == 2) {
+                        switch (item) {
+                            case 100101:
+                                item = 120101;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
                     // 직전 입력 완료된 정보를 다시 읽게되면 무시한다.
                     if (lastType == type && lastItemCode == item && lastPeopleCode == people) continue;
 
