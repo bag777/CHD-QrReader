@@ -30,6 +30,7 @@ import java.awt.Dimension;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.InvocationTargetException;
+import java.security.cert.PKIXReason;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -439,35 +440,49 @@ public class QRReaderMainFrame extends JFrame implements QRResources {
                 }
 
                 if (result != null) {
-                    String[] elems = result.getText().split("[,]");
-                    int type = Integer.parseInt(elems[0]);
-                    int item, people;
+                    String readLine = result.getText();
 
-                    // type 구분 필드 추가전 QR 인식을 위함
-                    if (type > 2) {
-                        item = type;
-                        type = 2; // 선교계정
+                    int type = -1, item = -1, people = -1;
+                    if (readLine.indexOf("%") > 0) {
+                        // 100305%1113
+                        String[] elems = readLine.split("[%]");
+
+                        item = Integer.parseInt(elems[0]);
                         people = Integer.parseInt(elems[1]);
+
+                        type = ItemInfoPool.getInstance().get(item).getType();
                     } else {
-                        item = Integer.parseInt(elems[1]);
-                        people = Integer.parseInt(elems[2]);
-                    }
+                        // 1,100305,1113,박장순
+                        String[] elems = readLine.split("[,]");
 
-                    // Temporary
-                    // 급하게 만드느랴 코드를 고려하지 않고 만듬(비전헌금)
-                    if (item == 999999) {
-                        type = 2;
-                        item = 100101;
-                    }
+                        type = Integer.parseInt(elems[0]);
 
-                    // 2020년도 코드 수정됨.
-                    if (type == 2) {
-                        switch (item) {
-                            case 100101:
-                                item = 120101;
-                                break;
-                            default:
-                                break;
+                        // type 구분 필드 추가전 QR 인식을 위함
+                        if (type > 2) {
+                            item = type;
+                            type = 2; // 선교계정
+                            people = Integer.parseInt(elems[1]);
+                        } else {
+                            item = Integer.parseInt(elems[1]);
+                            people = Integer.parseInt(elems[2]);
+                        }
+
+                        // Temporary
+                        // 급하게 만드느랴 코드를 고려하지 않고 만듬(비전헌금)
+                        if (item == 999999) {
+                            type = 2;
+                            item = 100101;
+                        }
+
+                        // 2020년도 코드 수정됨.
+                        if (type == 2) {
+                            switch (item) {
+                                case 100101:
+                                    item = 120101;
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
 

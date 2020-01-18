@@ -18,6 +18,7 @@ public class ItemInfoPool implements QRResources {
     }
 
     private final static Hashtable<String, ItemInfo> hashItem = new Hashtable<>();
+    private final static Hashtable<Integer, ItemInfo> hashNewItem = new Hashtable<>();
 
     private ItemInfoPool() {
         loadFromDb();
@@ -52,9 +53,14 @@ public class ItemInfoPool implements QRResources {
 
     public void put(ItemInfo itemInfo) {
         hashItem.put(itemInfo.getType() + "-" + itemInfo.getCode(), itemInfo);
+        hashNewItem.put(itemInfo.getCode(), itemInfo);
     }
 
     public ItemInfo get(int type, int code) {
         return hashItem.get(type + "-" + code);
+    }
+
+    public ItemInfo get(int code) {
+        return hashNewItem.get(code);
     }
 }
