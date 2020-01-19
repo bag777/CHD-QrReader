@@ -20,7 +20,8 @@ public interface QRResources {
 
     enum FinanceType {
         Basic(1, "일반계정", Arrays.asList(100101, 100102, 100303, 100304, 100305)),
-        Mission(2, "선교계정", Arrays.asList(100101));
+//        Mission(2, "선교계정", Arrays.asList(100101));
+        Mission(2, "선교계정", Arrays.asList(120101));
 
         int code;
         String name;
